@@ -6,6 +6,7 @@ for (let i = 0; i < NoofDrums; i++) {
         //repalced by () =>i.e anonymous function
         var option = this.innerHTML; 
         makeSound(option);
+        buttonAnimation(option);
     //     console.log(option)
     //     switch (option)
     //     {
@@ -50,6 +51,7 @@ for (let i = 0; i < NoofDrums; i++) {
         //alert("Key pressed");
    
         makeSound(event.key);
+        buttonAnimation(event.key);
         
         //O/p
         //index.js:52 KeyboardEvent {isTrusted: true, key: 'w', code: 'KeyW', location: 0, ctrlKey: false, …}isTrusted: truealtKey: falsebubbles: truecancelBubble: falsecancelable: truecharCode: 119code: "KeyW"composed: truectrlKey: falsecurrentTarget: nulldefaultPrevented: falsedetail: 0eventPhase: 0isComposing: falsekey: "w"keyCode: 119location: 0metaKey: falsepath: (4) [body, html, document, Window]repeat: falsereturnValue: trueshiftKey: falsesourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}srcElement: bodytarget: bodytimeStamp: 437.89999997615814type: "keypress"view: Window {window: Window, self: Window, document: document, name: '', location: Location, …}which: 119[[Prototype]]: KeyboardEvent
@@ -100,6 +102,17 @@ function makeSound(key)
         }
     
     }
+
+
+function buttonAnimation(currentKey)
+{
+    var animation = document.querySelector("." + currentKey);
+    animation.classList.add("pressed");
+
+    setTimeout(function () {
+        animation.classList.remove("pressed");
+    },100);
+}
 
 
 // document.querySelector("button").addEventListener("click", function () {
